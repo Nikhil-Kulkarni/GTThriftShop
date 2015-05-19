@@ -3,6 +3,7 @@ from flask import jsonify
 from flask import abort
 from flask import request
 from flask import make_response
+import os
 
 app = Flask(__name__)
 
@@ -45,4 +46,5 @@ def delete_item(item_id):
 	return jsonify({'result':True})
 
 if __name__ == '__main__':
-	app.run(debug=True)
+	port = int(os.environ.get("PORT", 5000))
+	app.run(host='0.0.0.0', port=port)
