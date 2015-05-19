@@ -15,6 +15,10 @@ items = [
 	}
 ]
 
+@app.route('/', methods=['GET'])
+def init_page():
+	return 'Welcome to GT Thrift Shop'
+
 @app.route('/getItems', methods=['GET'])
 def get_items():
 	return jsonify({'items':items})
